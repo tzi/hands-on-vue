@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import { getPokemonList } from './pokemonService';
     import Card from './Card';
 
     export default {
@@ -35,20 +36,7 @@
         },
         data() {
             return {
-                pokemonList: [
-                    {
-                        id: 1,
-                        name: 'Bulbasaur'
-                    },
-                    {
-                        id: 2,
-                        name: 'Ivysaur'
-                    },
-                    {
-                        id: 3,
-                        name: 'Venusaur'
-                    }
-                ]
+                pokemonList: getPokemonList()
             }
         }
     }
