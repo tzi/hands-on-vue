@@ -10,7 +10,7 @@
 
 <script>
     import Card from './Card';
-    import PokemonService from './pokemonService'
+    import { getPokemon } from './pokemonService'
 
     export default {
         name: "pokemon",
@@ -23,9 +23,9 @@
           }
         },
         async mounted() {
-          this.loading = true
-          this.pokemon = await PokemonService.getPokemon(this.id);
-          this.loading = false
+          this.loading = true;
+          this.pokemon = await getPokemon(this.id);
+          this.loading = false;
         }
     }
 </script>
