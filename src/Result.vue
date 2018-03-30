@@ -2,11 +2,7 @@
     <div class="resultset">
         <div class="columns is-multiline">
 
-            <Card :id="1" :name="'Bulbasaur'"></Card>
-
-            <Card :id="2" :name="'Ivysaur'"></Card>
-
-            <Card :id="3" :name="'Venusaur'"></Card>
+            <Card v-for="pokemon of pokemonList" :id="pokemon.id" :name="pokemon.name" :key="pokemon.id"></Card>
 
         </div>
     </div>
@@ -18,6 +14,24 @@
     export default {
         components: {
             Card,
+        },
+        data() {
+            return {
+                pokemonList: [
+                    {
+                        id: 1,
+                        name: 'Bulbasaur'
+                    },
+                    {
+                        id: 2,
+                        name: 'Ivysaur'
+                    },
+                    {
+                        id: 3,
+                        name: 'Venusaur'
+                    }
+                ]
+            }
         }
     }
 </script>

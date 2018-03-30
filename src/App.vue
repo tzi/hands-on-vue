@@ -25,6 +25,7 @@
     },
     name: 'app',
     data () {
+        return {};
     }
   }
 </script>
