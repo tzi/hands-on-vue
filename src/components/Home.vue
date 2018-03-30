@@ -23,6 +23,9 @@ export default {
     Search,
     Result
   },
+  async mounted() {
+      this.$store.dispatch('fetchPokemonList');
+  },
 }
 </script>
 

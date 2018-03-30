@@ -4,7 +4,8 @@ import { getPokemonList } from './components/pokemonService';
 
 const state = {
     pokemonList: [],
-    searchValue: ''
+    searchValue: '',
+    loading: true,
 };
 
 const actions = {
@@ -12,11 +13,12 @@ const actions = {
         return getPokemonList()
             .then(pokemonList => {
                 context.commit('setPokemonList', pokemonList);
+                context.commit('setLoading', false);
             });
     },
 
     setSearchValue(context, searchValue) {
-        return context.commit('setSearchValue', searchValue);
+        return context.commit('setSearchValue', searchValue.toLowerCase());
     }
 };
 
@@ -27,16 +29,26 @@ const mutations = {
 
     setSearchValue(state, searchValue) {
         state.searchValue = searchValue;
+    },
+
+    setLoading(state, loading) {
+        state.loading = loading;
     }
 };
 
 const getters = {
-    pokemonList(state) {
-        return state.pokemonList;
+    filteredPokemonList(state) {
+        return state.pokemonList.filter(pokemon => {
+            return pokemon.name.includes(state.searchValue);
+        });
     },
 
     searchValue(state) {
         return state.searchValue;
+    },
+
+    loading(state) {
+        return state.loading;
     }
 };
 
