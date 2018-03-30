@@ -1,15 +1,14 @@
 <template>
   <div class="container">
-    <!-- Cover -->
+
     <div class="cover">
       <img src="/src/assets/images/zenidex.png"/>
     </div>
 
-    <!-- Searchbar -->
     <div class="field m-t">
-      <search @onSearchChange="onSearchChange"/>
+      <Search/>
     </div>
-    <result :criteria="searchCriteria"/>
+    <result/>
 
   </div>
 </template>
@@ -24,17 +23,6 @@ export default {
     Search,
     Result
   },
-
-  data() {
-    return {
-      searchCriteria: ''
-    }
-  },
-  methods: {
-    onSearchChange(newValue) {
-      this.searchCriteria = newValue;
-    }
-  }
 }
 </script>
 

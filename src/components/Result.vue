@@ -8,8 +8,7 @@
       </div>
 
       <router-link class="column is-2 has-text-centered" v-for="pokemon of pokemonList" :to="`/pokemon/${pokemon.id}`" :key="pokemon.id" v-if="filterOnPokemon(pokemon)">
-        <!-- Pokemon -->
-        <card  :pokemon="pokemon" v-if="!loading"></card>
+        <card :pokemon="pokemon" v-if="!loading"></card>
       </router-link>
 
     </div>
@@ -25,30 +24,28 @@
         components: {
           Card
         },
-      props: [
-        'criteria'
-      ],
-      data() {
-          return {
-            loading: true,
-          }
-      },
-      methods: {
-        filterOnPokemon: function(pokemon) {
-          const lowerSearch = this.criteria.toLowerCase();
-          const lowerPokemon = pokemon.name.toLowerCase();
-          return lowerPokemon.includes(lowerSearch);
+        data() {
+            return {
+              loading: true,
+            }
         },
-      },
-      async mounted() {
-        this.loading = false;
-        this.$store.dispatch('fetchPokemonList');
-      },
-      computed: {
-          ...mapGetters({
-              pokemonList: 'pokemonList'
-          })
-      }
+        methods: {
+          filterOnPokemon: function(pokemon) {
+            const lowerSearch = this.searchValue.toLowerCase();
+            const lowerPokemon = pokemon.name.toLowerCase();
+            return lowerPokemon.includes(lowerSearch);
+          },
+        },
+        async mounted() {
+          this.loading = false;
+          this.$store.dispatch('fetchPokemonList');
+        },
+        computed: {
+            ...mapGetters({
+                pokemonList: 'pokemonList',
+                searchValue: 'searchValue'
+            })
+        }
     }
 </script>
 
