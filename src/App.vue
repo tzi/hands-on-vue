@@ -7,9 +7,9 @@
         <img src="./assets/images/zenidex.png"/>
       </div>
 
-      <Search />
+      <Search @searchChange="searchChange" />
 
-      <Result />
+      <Result :filter="searchValue" />
     </div>
   </div>
 </template>
@@ -23,9 +23,16 @@
         Result,
         Search
     },
+    methods: {
+        searchChange(searchValue) {
+            this.searchValue = searchValue;
+        }
+    },
     name: 'app',
     data () {
-        return {};
+        return {
+            searchValue: ''
+        };
     }
   }
 </script>

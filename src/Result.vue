@@ -1,7 +1,7 @@
 <template>
     <div class="resultset">
         <div class="columns is-multiline">
-
+{{ filter }}
             <Card v-for="pokemon of pokemonList" :pokemon="pokemon" :key="pokemon.id"></Card>
 
         </div>
@@ -14,6 +14,9 @@
     export default {
         components: {
             Card,
+        },
+        props: {
+            filter: String,
         },
         data() {
             return {
