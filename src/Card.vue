@@ -4,7 +4,7 @@
             <div class="card-content">
                 <img :src="imageUrl"/>
                 <p>
-                    {{ name }}
+                    {{ pokemon.name }}
                 </p>
             </div>
         </div>
@@ -15,12 +15,11 @@
     export default {
         computed: {
             imageUrl() {
-                return `src/assets/sprites/${this.id}.png`;
+                return `src/assets/sprites/${this.pokemon.id}.png`;
             }
         },
         props: [
-            'id',
-            'name'
+            'pokemon'
         ]
     }
 </script>

@@ -2,7 +2,7 @@
     <div class="resultset">
         <div class="columns is-multiline">
 
-            <Card v-for="pokemon of pokemonList" :id="pokemon.id" :name="pokemon.name" :key="pokemon.id"></Card>
+            <Card v-for="pokemon of pokemonList" :pokemon="pokemon" :key="pokemon.id"></Card>
 
         </div>
     </div>
