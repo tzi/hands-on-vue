@@ -39,10 +39,8 @@
                 pokemonList: []
             };
         },
-        created() {
-            getPokemonList().then(pokemonList => {
-                this.pokemonList = pokemonList;
-            });
+        async created() {
+            this.pokemonList = await getPokemonList();
         }
     }
 </script>
