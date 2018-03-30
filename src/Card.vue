@@ -2,7 +2,7 @@
     <div class="column is-2 has-text-centered">
         <div class="card">
             <div class="card-content">
-                <img :src="`src/assets/sprites/${id}.png`"/>
+                <img :src="imageUrl"/>
                 <p>
                     {{ name }}
                 </p>
@@ -13,6 +13,11 @@
 
 <script>
     export default {
+        computed: {
+            imageUrl() {
+                return `src/assets/sprites/${this.id}.png`;
+            }
+        },
         props: [
             'id',
             'name'
