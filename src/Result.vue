@@ -36,8 +36,13 @@
         },
         data() {
             return {
-                pokemonList: getPokemonList()
-            }
+                pokemonList: []
+            };
+        },
+        created() {
+            getPokemonList().then(pokemonList => {
+                this.pokemonList = pokemonList;
+            });
         }
     }
 </script>

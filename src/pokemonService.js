@@ -1,5 +1,5 @@
 export function getPokemonList () {
-    return [
+    return Promise.resolve([
         {
             id: 1,
             name: 'Bulbasaur'
@@ -12,5 +12,5 @@ export function getPokemonList () {
             id: 3,
             name: 'Venusaur'
         }
-    ];
+    ]);
 }
